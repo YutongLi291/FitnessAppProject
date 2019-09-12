@@ -21,6 +21,9 @@ public class Main {
 
         while (true) {
             input = scanner.nextLine();
+            if (input == QUIT_COMMAND) {
+                break;
+            }
         }
     }
 
