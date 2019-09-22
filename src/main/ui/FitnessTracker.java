@@ -11,6 +11,7 @@ public class FitnessTracker {
     private static final String TRACK_MEAL = "trackmeal";
     private static final String TRACK_EXERCISE = "trackexercise";
     private static final String QUIT_COMMAND = "quit";
+    private static final String TRACK_WEIGHT = "trackweight";
     private Scanner scanner;
 
     public static void main(String[] args) {
@@ -26,6 +27,7 @@ public class FitnessTracker {
 
         System.out.println("You can enter 'trackmeal' to record your meal");
         System.out.println("You can enter 'trackexercise' to record your exercise");
+        System.out.println("You can enter 'trackweight' to record your weight");
 
         System.out.println("You can enter 'quit' to quit this application");
     }
@@ -49,8 +51,18 @@ public class FitnessTracker {
             } else if (input.equals(TRACK_EXERCISE)) {
                 trackExercise(f);
 
+            } else if (input.equals(TRACK_WEIGHT)) {
+                trackWeight(w);
             }
         }
+    }
+
+    private void trackWeight(WeightTrack w) {
+        int weight;
+        System.out.println("Please enter your weight in kg");
+        weight = scanner.nextInt();
+        w.weightTrack(weight);
+        System.out.println("Your weight of " + w.getWeight() + "kg has been tracked");
     }
 
     private void trackExercise(CalorieTrack f) {
@@ -58,7 +70,7 @@ public class FitnessTracker {
         System.out.println("Please enter the amount of calories you burnt");
         calories = scanner.nextInt();
         f.burnCalories(calories);
-        System.out.println("Your net calories today is " + f.netCalories);
+        System.out.println("Your net calories today is " + f.getCalories());
     }
 
     private void trackMeal(CalorieTrack f) {
@@ -66,7 +78,7 @@ public class FitnessTracker {
         System.out.println("Please enter the calorie amount of your meal");
         calories = scanner.nextInt();
         f.addCalories(calories);
-        System.out.println("Your net calories today is " + f.netCalories);
+        System.out.println("Your net calories today is " + f.getCalories());
     }
 }
 

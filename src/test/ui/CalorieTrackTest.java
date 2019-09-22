@@ -11,6 +11,8 @@ class CalorieTrackTest {
 
     CalorieTrack fc;
 
+    //TODO: add way more test cases
+    //THINk OF MORE TEST CASES!!!!
     @BeforeEach
     public void setup(){
         fc = new CalorieTrack();
@@ -18,20 +20,23 @@ class CalorieTrackTest {
 
     @Test
     public void addPositiveCaloriesTest() {
+
         fc.addCalories(30);
-        assertEquals(30, fc.netCalories);
+        assertEquals(30, fc.getCalories());
 
     }
 
-    public void addNegativeCaloriesTest() {
-
-    }
 
     @Test
     public void burnCaloriesTest(){
         fc.burnCalories(50);
-        assertEquals(-50, fc.netCalories);
+        assertEquals(-50, fc.getCalories());
 
+    }
+
+    @Test
+    public void noActionsGetCaloriesTest(){
+        assertEquals(0, fc.getCalories());
     }
 
 

@@ -2,12 +2,15 @@ package model;
 
 public class WeightTrack {
 
-    int weight = 0;
+    int weight;
 
 
 
-    public int weightTrack(int w) {
+    public void weightTrack(int w) {
         weight = w;
+    }
+
+    public int getWeight() {
         return weight;
     }
 }
