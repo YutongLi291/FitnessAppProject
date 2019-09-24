@@ -2,8 +2,7 @@ package model;
 
 public class CalorieTrack {
 
-    public int
-            netCalories = 0;
+    public int netCalories = 0;
 
 
     // REQUIRES: foodCalories to be a positive integer

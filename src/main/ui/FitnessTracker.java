@@ -39,38 +39,38 @@ public class FitnessTracker {
         String input;
         int calories;
         scanner = new Scanner(System.in);
-        CalorieTrack f = new CalorieTrack();
-        WeightTrack w = new WeightTrack();
+        CalorieTrack ct = new CalorieTrack();
+        WeightTrack wt = new WeightTrack();
 
         while (true) {
             input = scanner.nextLine();
             if (input.equals(QUIT_COMMAND)) {
                 break;
             } else if (input.equals(TRACK_MEAL)) {
-                trackMeal(f);
+                trackMeal(ct);
             } else if (input.equals(TRACK_EXERCISE)) {
-                trackExercise(f);
+                trackExercise(ct);
 
             } else if (input.equals(TRACK_WEIGHT)) {
-                trackWeight(w);
+                trackWeight(wt);
             }
         }
     }
 
-    private void trackWeight(WeightTrack w) {
+    private void trackWeight(WeightTrack wt) {
         int weight;
         System.out.println("Please enter your weight in kg");
         weight = scanner.nextInt();
-        w.weightTrack(weight);
-        System.out.println("Your weight of " + w.getWeight() + "kg has been tracked");
+        wt.weightTrack(weight);
+        System.out.println("Your weight of " + wt.getWeight() + "kg has been tracked");
     }
 
-    private void trackExercise(CalorieTrack f) {
+    private void trackExercise(CalorieTrack ct) {
         int calories;
         System.out.println("Please enter the amount of calories you burnt");
         calories = scanner.nextInt();
-        f.burnCalories(calories);
-        System.out.println("Your net calories today is " + f.getCalories());
+        ct.burnCalories(calories);
+        System.out.println("Your net calories today is " + ct.getCalories());
     }
 
     private void trackMeal(CalorieTrack f) {
