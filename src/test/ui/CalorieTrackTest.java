@@ -54,4 +54,15 @@ class CalorieTrackTest {
         assertEquals(-30, fc.getCalories());
     }
 
+    @Test
+    public void addNegativeCalories(){
+        fc.addCalories(-50);
+        assertEquals(0,fc.getCalories());
+    }
+
+    public void burnNegativeCalories(){
+        fc.burnCalories(-60);
+        assertEquals(0,fc.getCalories());
+    }
+
 }

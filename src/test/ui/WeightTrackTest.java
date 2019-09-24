@@ -33,3 +33,4 @@ public class WeightTrackTest {
         assertEquals( 0, wt.getWeight());
     }
 }
+//balloon given size， bigger and bigger， expansion， reach certain point, it pops, no interaction when anything happens, everything is ontick

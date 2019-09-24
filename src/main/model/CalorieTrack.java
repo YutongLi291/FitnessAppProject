@@ -5,7 +5,6 @@ public class CalorieTrack {
     public int netCalories = 0;
 
 
-    // REQUIRES: foodCalories to be a positive integer
     // MODIFIES: this
     // EFFECT:   adds the calories of eaten food to the net calories taken today
     public void addCalories(int foodCalories) {
@@ -17,7 +16,6 @@ public class CalorieTrack {
 
     }
 
-    // REQUIRES: exerciseCalories to be a positive integer
     // MODIFIES: this
     // EFFECT: decreases the calories burnt  from net calories
     public void burnCalories(int exerciseCalories) {
