@@ -39,5 +39,19 @@ class CalorieTrackTest {
         assertEquals(0, fc.getCalories());
     }
 
+    @Test
+    public void addThenBurnCaloriesTest(){
+        fc.addCalories(30);
+        fc.burnCalories(10);
+        assertEquals(20, fc.getCalories());
+    }
+
+    @Test
+    public void burnThenAddCaloriesTest(){
+        fc.burnCalories(50);
+        fc.addCalories(20);
+
+        assertEquals(-30, fc.getCalories());
+    }
 
 }
