@@ -2,15 +2,19 @@ package model;
 
 public class WeightTrack {
 
-    int weight;
+    public double weight;
 
 
-
-    public void weightTrack(int w) {
-        weight = w;
+    //REQUIRES: weight be in kgs
+    //MODIFIES: this
+    //EFFECTS:  sets the weight integer to the entered weight
+    public void weightTrack(double w) {
+        this.weight = w;
     }
 
-    public int getWeight() {
+
+    //EFFECTS: returns the set weight
+    public double getWeight() {
         return weight;
     }
 }
