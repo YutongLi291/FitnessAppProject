@@ -6,6 +6,8 @@ import model.WeightTrack;
 
 import java.util.Scanner;
 
+
+
 public class FitnessTracker {
 
     private static final String CONFIRM = "ok";
@@ -21,6 +23,7 @@ public class FitnessTracker {
     public BmiCalculator bc = new BmiCalculator();
 
     public static void main(String[] args) {
+
         FitnessTracker ft = new FitnessTracker();
         ft.welcome();
         ft.enterCommands();
@@ -50,6 +53,7 @@ public class FitnessTracker {
             input = scanner.nextLine();
 
             if (input.equals(QUIT_COMMAND)) {
+                save();
                 break;
             } else if (input.equals(TRACK_MEAL)) {
                 trackMeal(ct);
@@ -77,8 +81,8 @@ public class FitnessTracker {
         int weight;
         System.out.println("Please enter your weight in kg");
         weight = scanner.nextInt();
-        wt.weightTrack(weight);
-        System.out.println("Your weight of " + wt.getWeight() + "kg has been tracked");
+        wt.trackMeasure(weight);
+        System.out.println("Your weight of " + wt.getMeasure() + "kg has been tracked");
     }
 
     private void trackExercise(CalorieTrack ct) {
@@ -96,6 +100,8 @@ public class FitnessTracker {
         f.addCalories(calories);
         System.out.println("Your net calories today is " + f.getCalories());
     }
+
+    private void save(){}
 }
 
 

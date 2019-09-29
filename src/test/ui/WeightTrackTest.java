@@ -21,15 +21,15 @@ public class WeightTrackTest {
 
     @Test
     public void normalWeightTrackTest(){
-        wt.weightTrack(50);
-        assertEquals(50, wt.getWeight());
-        wt.weightTrack(60);
-        assertEquals(60, wt.getWeight());
+        wt.trackMeasure(50);
+        assertEquals(50, wt.getMeasure());
+        wt.trackMeasure(60);
+        assertEquals(60, wt.getMeasure());
 
     }
 
     @Test
     public void noWeightEnteredGetWeight(){
-        assertEquals( 0, wt.getWeight());
+        assertEquals( 0, wt.getMeasure());
     }
 }

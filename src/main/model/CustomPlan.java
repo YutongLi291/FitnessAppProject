@@ -3,6 +3,6 @@ package model;
 public class CustomPlan {
 
 
-    public int calorieGoal;
-    public int weightGoal;
+    public static int calorieGoal;
+    public static int weightGoal;
 }

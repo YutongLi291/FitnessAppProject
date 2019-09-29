@@ -1,21 +1,25 @@
 package model;
 
-public class WeightTrack {
+public class WeightTrack implements Tracker {
 
-    public double weight;
+    public static double weight;
 
 
     //REQUIRES: weight be in kgs
     //MODIFIES: this
     //EFFECTS:  sets the weight integer to the entered weight
-    public void weightTrack(double w) {
+
+    @Override
+    public void trackMeasure(double w) {
         this.weight = w;
     }
 
 
     //EFFECTS: returns the set weight
-    public double getWeight() {
+    @Override
+    public double getMeasure() {
         return weight;
     }
 }
+
 

@@ -2,7 +2,7 @@ package model;
 
 public class CalorieTrack {
 
-    public int netCalories = 0;
+    public static int netCalories = 0;
 
 
     // MODIFIES: this

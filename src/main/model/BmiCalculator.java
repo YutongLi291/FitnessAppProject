@@ -3,7 +3,7 @@ package model;
 public class BmiCalculator {
 
 
-    public double bmi;
+    public static double bmi;
 
 
     //REQUIRES: weight be in kgs, height be in cms
