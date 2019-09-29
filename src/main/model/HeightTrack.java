@@ -7,13 +7,14 @@ public class HeightTrack implements Tracker {
     //Requires: height be a double in metres
     //Modifies: this
     //Effects: puts entered height into height variable
-    @Override
-    public void trackMeasure(double m) {
 
+    @Override
+    public void trackMeasure(double h) {
+        this.height = h;
     }
 
     @Override
     public double getMeasure() {
-        return 0;
+        return height;
     }
 }
