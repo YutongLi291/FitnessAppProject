@@ -2,7 +2,7 @@ package model;
 
 public class CalorieTrack {
 
-    public static int netCalories = 0;
+    public int netCalories = 0;
 
 
     // MODIFIES: this
@@ -31,6 +31,7 @@ public class CalorieTrack {
 
     }
 
+    //Effect: gets the netcalories consumed
     public int getCalories() {
         return netCalories;
     }
