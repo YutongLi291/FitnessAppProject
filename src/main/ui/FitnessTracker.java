@@ -96,12 +96,12 @@ public class FitnessTracker {
 
     private void trackOrGetHeight(HeightTrack ht) {
         double height;
-        System.out.println("You can type 'getheight' "
-                + "to get your height if you tracked your height before, otherwise, type 'trackheight'");
+        System.out.println("You can type 'get' "
+                + "to get your height if you tracked your height before, otherwise, type 'track'");
         input = scanner.nextLine();
-        if (input.equals("getheight")) {
+        if (input.equals("get")) {
             System.out.println("Your previously recorded height is " + ht.getMeasure() + "m");
-        } else if (input.equals("trackheight")) {
+        } else if (input.equals("track")) {
             System.out.println("Please enter your height in m");
             height = scanner.nextDouble();
             ht.trackMeasure(height);
@@ -111,12 +111,12 @@ public class FitnessTracker {
 
     private void trackOrGetWeight(WeightTrack wt) {
         double weight;
-        System.out.println("You can type 'getweight' "
-                + "to get your weight if you tracked your weight before, otherwise, type 'trackweight'");
+        System.out.println("You can type 'get' "
+                + "to get your weight if you tracked your weight before, otherwise, type 'track'");
         input = scanner.nextLine();
-        if (input.equals("getweight")) {
+        if (input.equals("get")) {
             System.out.println("Your previously recorded weight is " + wt.getMeasure() + "kg");
-        } else if (input.equals("trackweight")) {
+        } else if (input.equals("track")) {
             System.out.println("Please enter your weight in kg");
             weight = scanner.nextDouble();
             wt.trackMeasure(weight);
