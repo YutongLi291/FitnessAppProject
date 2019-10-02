@@ -11,11 +11,11 @@ public class SaveFile {
 
 
     public static void main(String[] args) throws IOException {
-        BmiCalculator bc = FitnessTracker.bc;
+        Calculator bc = FitnessTracker.bc;
         CalorieTrack ct = FitnessTracker.ct;
         WeightTrack wt = FitnessTracker.wt;
         HeightTrack ht = FitnessTracker.ht;
-        DailyCalorieIntakeCalculator dcic = new DailyCalorieIntakeCalculator();
+        Calculator dcic = new DailyCalorieIntakeCalculator();
         try {
             FileOutputStream saveFile = new FileOutputStream("saveFile.sav");
             ObjectOutputStream save = new ObjectOutputStream(saveFile);

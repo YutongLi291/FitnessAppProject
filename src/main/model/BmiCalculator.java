@@ -3,7 +3,7 @@ package model;
 public class BmiCalculator implements Calculator, Tracker {
 
 
-    public  double bmi;
+    public   double bmi;
     public String weightClassify;
     private static final String UNDERWEIGHT = "underweight";
     private static final String OVERWEIGHT = "overweight";

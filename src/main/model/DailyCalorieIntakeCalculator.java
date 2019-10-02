@@ -2,7 +2,7 @@ package model;
 
 public class DailyCalorieIntakeCalculator implements Calculator, Tracker {
 
-    public  double recommendedIntake;
+    public double recommendedIntake;
 
     @Override
     //Requires: w and h be doubles in kg and m respectively

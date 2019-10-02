@@ -3,7 +3,7 @@ package model;
 public class HeightTrack implements Tracker {
 
 
-    public  double height;
+    public double height;
 
 
     @Override

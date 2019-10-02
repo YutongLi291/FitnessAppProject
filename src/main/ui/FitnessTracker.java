@@ -19,9 +19,10 @@ public class FitnessTracker {
     public String input;
     public static CalorieTrack ct = new CalorieTrack();
     public static WeightTrack wt = new WeightTrack();
-    public static BmiCalculator bc = new BmiCalculator();
+    public static Calculator bc = new BmiCalculator();
+    public static Calculator dcic = new DailyCalorieIntakeCalculator();
     public static HeightTrack ht = new HeightTrack();
-    public static DailyCalorieIntakeCalculator dcic = new DailyCalorieIntakeCalculator();
+
 
     public static void main(String[] args) throws IOException {
 
@@ -81,14 +82,14 @@ public class FitnessTracker {
         }
     }
 
-    private void calculateBmi(BmiCalculator bc) {
+    private void calculateBmi(Calculator calculator) {
         double weight;
         double height;
         System.out.println("Please enter your weight in kg");
         weight = scanner.nextDouble();
         System.out.println("Please enter your height in meters");
         height = scanner.nextDouble();
-        bc.calculateValue(weight, height);
+        calculator.calculateValue(weight, height);
     }
 
 
