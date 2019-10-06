@@ -1,22 +1,14 @@
 package model;
 
-public class HeightTrack implements Tracker {
+public class HeightTrack extends Tracker {
 
 
-    public double height;
 
 
-    @Override
-    //Requires: height be a double in metres
-    //Modifies: this
-    //Effects: puts entered height into height variable
-    public void trackMeasure(double h) {
-        this.height = h;
-    }
 
     @Override
-    //Effects: returns  the set height
-    public double getMeasure() {
-        return height;
+    public void printMeasure() {
+        System.out.println("Your height recorded is now" + getMeasure() + "metres");
+
     }
 }

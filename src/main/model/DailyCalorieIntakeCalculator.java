@@ -1,6 +1,6 @@
 package model;
 
-public class DailyCalorieIntakeCalculator implements Calculator, Tracker {
+public class DailyCalorieIntakeCalculator implements Calculator {
 
     public double recommendedIntake;
 

@@ -17,7 +17,7 @@ public class FitnessTracker {
     private static final String CALCULATE_BMI = "bmi";
     private Scanner scanner;
     public String input;
-    public static CalorieTrack ct = new CalorieTrack();
+    public static Calorie ct = new Calorie();
     public static WeightTrack wt = new WeightTrack();
     public static Calculator bc = new BmiCalculator();
     public static Calculator dcic = new DailyCalorieIntakeCalculator();
@@ -49,7 +49,7 @@ public class FitnessTracker {
     //EFFECT: prompts the user to enter commands and directs the user to the right menu
     //mostly referenced from SimpleCalculatorStarterLecture code
 
-    private void enterCommands() throws IOException {
+    private void enterCommands() {
         scanner = new Scanner(System.in);
 
         while (true) {
@@ -64,7 +64,7 @@ public class FitnessTracker {
             } else if (input.equals(WEIGHT)) {
                 trackOrGetWeight(wt);
             } else if (input.equals(CALCULATE_BMI)) {
-                calculateBmi(bc);
+                calculatorFunction(bc);
             } else if (input.equals(HEIGHT)) {
                 trackOrGetHeight(ht);
 
@@ -72,7 +72,7 @@ public class FitnessTracker {
         }
     }
 
-    private void trackMealOrExercise(CalorieTrack ct) {
+    private void trackMealOrExercise(Calorie ct) {
         System.out.println("Enter 'trackmeal' to track your meal or 'trackexercise' to track your exercise");
         input = scanner.nextLine();
         if (input.equals("trackmeal")) {
@@ -82,7 +82,7 @@ public class FitnessTracker {
         }
     }
 
-    private void calculateBmi(Calculator calculator) {
+    private void calculatorFunction(Calculator calculator) {
         double weight;
         double height;
         System.out.println("Please enter your weight in kg");
@@ -91,7 +91,6 @@ public class FitnessTracker {
         height = scanner.nextDouble();
         calculator.calculateValue(weight, height);
     }
-
 
 
 
@@ -106,7 +105,7 @@ public class FitnessTracker {
             System.out.println("Please enter your height in m");
             height = scanner.nextDouble();
             ht.trackMeasure(height);
-            System.out.println("Your height of " + ht.getMeasure() + "m has been tracked");
+            ht.printMeasure();
         }
     }
 
@@ -121,13 +120,13 @@ public class FitnessTracker {
             System.out.println("Please enter your weight in kg");
             weight = scanner.nextDouble();
             wt.trackMeasure(weight);
-            System.out.println("Your weight of " + wt.getMeasure() + "kg has been tracked");
+            wt.printMeasure();
         }
     }
 
 
 
-    private void trackExercise(CalorieTrack ct) {
+    private void trackExercise(Calorie ct) {
         int calories;
         System.out.println("Please enter the amount of calories you burnt");
         calories = scanner.nextInt();
@@ -135,7 +134,7 @@ public class FitnessTracker {
         System.out.println("Your net calories today is " + ct.getCalories());
     }
 
-    private void trackMeal(CalorieTrack ct) {
+    private void trackMeal(Calorie ct) {
         int calories;
         System.out.println("Please enter the calorie amount of your meal");
         calories = scanner.nextInt();

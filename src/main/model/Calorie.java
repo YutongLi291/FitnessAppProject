@@ -1,6 +1,6 @@
 package model;
 
-public class CalorieTrack {
+public class Calorie {
 
     public int netCalories = 0;
 

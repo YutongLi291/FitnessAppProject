@@ -1,21 +1,21 @@
 package ui;
 
-import model.CalorieTrack;
+import model.Calorie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class CalorieTrackTest {
+class CalorieTest {
 
-    CalorieTrack fc;
+    Calorie fc;
 
     //TODO: add way more test cases
     //THINk OF MORE TEST CASES!!!!
     @BeforeEach
     public void setup(){
-        fc = new CalorieTrack();
+        fc = new Calorie();
     }
 
     @Test

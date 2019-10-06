@@ -2,17 +2,15 @@ package ui;
 
 import model.*;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class SaveFile {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Calculator bc = FitnessTracker.bc;
-        CalorieTrack ct = FitnessTracker.ct;
+        Calorie ct = FitnessTracker.ct;
         WeightTrack wt = FitnessTracker.wt;
         HeightTrack ht = FitnessTracker.ht;
         Calculator dcic = new DailyCalorieIntakeCalculator();

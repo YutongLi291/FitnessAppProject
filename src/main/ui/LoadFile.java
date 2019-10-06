@@ -19,8 +19,8 @@ public class LoadFile {
             ObjectInputStream restore  = new ObjectInputStream(saveFile);
             bc.trackMeasure((double) restore.readObject());
             FitnessTracker.ct.netCalories = (int) restore.readObject();
-            FitnessTracker.wt.weight = (double) restore.readObject();
-            FitnessTracker.ht.height = (double) restore.readObject();
+            FitnessTracker.wt.measure = (double) restore.readObject();
+            FitnessTracker.ht.measure = (double) restore.readObject();
             dcic.trackMeasure((double) restore.readObject());
 
             restore.close();

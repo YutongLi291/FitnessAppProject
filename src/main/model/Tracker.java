@@ -1,9 +1,18 @@
 package model;
 
-public interface Tracker {
+public abstract class Tracker {
 
-    void trackMeasure(double m);
+
+    public  double measure;
+    
+    public void trackMeasure(double m) {
+        this.measure = m;
+    }
 
     //Requires: there be a tracked value already
-    double getMeasure();
+    public double getMeasure() {
+        return measure;
+    }
+
+    public abstract void printMeasure();
 }
