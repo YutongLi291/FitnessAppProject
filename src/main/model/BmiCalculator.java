@@ -1,6 +1,6 @@
 package model;
 
-public class BmiCalculator implements Calculator{
+public class BmiCalculator implements Calculator {
 
 
     public   double bmi;
