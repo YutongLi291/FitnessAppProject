@@ -16,7 +16,7 @@ public class LoadFile {
 
         try {
             FileInputStream saveFile = new FileInputStream("saveFile.sav");
-            ObjectInputStream restore  = new ObjectInputStream(saveFile);
+            ObjectInputStream restore = new ObjectInputStream(saveFile);
             bc.trackMeasure((double) restore.readObject());
             FitnessTracker.ct.netCalories = (int) restore.readObject();
             FitnessTracker.wt.measure = (double) restore.readObject();

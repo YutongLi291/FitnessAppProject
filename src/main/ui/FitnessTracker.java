@@ -1,19 +1,20 @@
 package ui;
 
+import exceptions.ImpossibleMeasureException;
+import exceptions.NegativeEntryException;
 import model.*;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 
-
 public class FitnessTracker {
 
     private static final String CONFIRM = "ok";
-    private static final String TRACK = "track";
+    private static final String TRACK = "t";
     private static final String QUIT_COMMAND = "quit";
-    private static final String WEIGHT = "weight";
-    private static final String HEIGHT = "height";
+    private static final String WEIGHT = "w";
+    private static final String HEIGHT = "h";
     private static final String CALCULATE_BMI = "bmi";
     private Scanner scanner;
     public String input;
@@ -27,7 +28,7 @@ public class FitnessTracker {
     public static void main(String[] args) throws IOException {
 
         FitnessTracker ft = new FitnessTracker();
-        LoadFile.main(new String[] {"main"});
+        LoadFile.main(new String[]{"main"});
 
         ft.welcome();
         ft.enterCommands();
@@ -38,9 +39,7 @@ public class FitnessTracker {
         System.out.println("Welcome to Fitness Planner!");
         System.out.println("You can do the following things:");
 
-        System.out.println("You can enter 'track' to record your meal or exercise");
-        System.out.println("You can enter 'weight' to record or get your weight");
-        System.out.println("You can enter 'height' to record or get your height");
+        System.out.println("You can enter 't' to record your meal, exercise, height, or weight");
         System.out.println("You can enter 'bmi' to calculate your bmi");
         System.out.println("Enter 'help' at any time to show this menu again");
         System.out.println("You can enter 'quit' to quit this application");
@@ -60,27 +59,41 @@ public class FitnessTracker {
             } else if (input.equals("help")) {
                 welcome();
             } else if (input.equals(TRACK)) {
-                trackMealOrExercise(ct);
-            } else if (input.equals(WEIGHT)) {
-                trackOrGetWeight(wt);
+                trackAnything();
             } else if (input.equals(CALCULATE_BMI)) {
                 calculatorFunction(bc);
-            } else if (input.equals(HEIGHT)) {
-                trackOrGetHeight(ht);
-
             }
+
         }
     }
 
-    private void trackMealOrExercise(Calorie ct) {
-        System.out.println("Enter 'trackmeal' to track your meal or 'trackexercise' to track your exercise");
+
+    public void trackAnything() {
+        System.out.println("Enter m to track meal, e to track exercise, h to track height, w to track weight");
         input = scanner.nextLine();
-        if (input.equals("trackmeal")) {
-            trackMeal(ct);
-        } else if (input.equals("trackexercise")) {
-            trackExercise(ct);
+        try {
+            if (input.equals("m")) {
+                trackMeal(ct);
+            } else if (input.equals("e")) {
+                trackExercise(ct);
+            } else if (input.equals("h")) {
+                trackOrGetHeight(ht);
+            } else if (input.equals("w")) {
+                trackOrGetWeight(wt);
+            }
+        } catch (NegativeEntryException e) {
+            System.out.println("Please enter positive numbers!");
         }
     }
+//    private void trackMealOrExercise(Calorie ct) {
+//        System.out.println("Enter 'trackmeal' to track your meal or 'trackexercise' to track your exercise");
+//        input = scanner.nextLine();
+//        if (input.equals("trackmeal")) {
+//            trackMeal(ct);
+//        } else if (input.equals("trackexercise")) {
+//            trackExercise(ct);
+//        }
+//    }
 
     private void calculatorFunction(Calculator calculator) {
         double weight;
@@ -89,9 +102,15 @@ public class FitnessTracker {
         weight = scanner.nextDouble();
         System.out.println("Please enter your height in meters");
         height = scanner.nextDouble();
-        calculator.calculateValue(weight, height);
-    }
+        try {
+            calculator.calculateValue(weight, height);
+        } catch (NegativeEntryException e) {
+            System.out.println("Please enter a positive number!");
+        } catch (ImpossibleMeasureException e) {
+            System.out.println("Those numbers are impossible!");
+        }
 
+    }
 
 
     private void trackOrGetHeight(HeightTrack ht) {
@@ -104,7 +123,11 @@ public class FitnessTracker {
         } else if (input.equals("track")) {
             System.out.println("Please enter your height in m");
             height = scanner.nextDouble();
-            ht.trackMeasure(height);
+            try {
+                ht.trackMeasure(height);
+            } catch (NegativeEntryException e) {
+                System.out.println("Please enter a positive number!");
+            }
             ht.printMeasure();
         }
     }
@@ -119,30 +142,36 @@ public class FitnessTracker {
         } else if (input.equals("track")) {
             System.out.println("Please enter your weight in kg");
             weight = scanner.nextDouble();
-            wt.trackMeasure(weight);
+            try {
+                wt.trackMeasure(weight);
+            } catch (NegativeEntryException e) {
+                System.out.println("Please enter a positive number!");
+            }
             wt.printMeasure();
         }
     }
 
 
-
-    private void trackExercise(Calorie ct) {
+    private void trackExercise(Calorie ct) throws NegativeEntryException {
         int calories;
         System.out.println("Please enter the amount of calories you burnt");
         calories = scanner.nextInt();
         ct.burnCalories(calories);
+
         System.out.println("Your net calories today is " + ct.getCalories());
     }
 
-    private void trackMeal(Calorie ct) {
+    private void trackMeal(Calorie ct) throws NegativeEntryException {
         int calories;
         System.out.println("Please enter the calorie amount of your meal");
         calories = scanner.nextInt();
+
         ct.addCalories(calories);
+
         System.out.println("Your net calories today is " + ct.getCalories());
     }
-
 }
+
 
 
 

@@ -1,5 +1,8 @@
 package model;
 
+import exceptions.ImpossibleMeasureException;
+import exceptions.NegativeEntryException;
+
 public interface Calculator {
 
 
@@ -7,5 +10,5 @@ public interface Calculator {
 
     double getMeasure();
 
-    void calculateValue(double a, double b);
+    void calculateValue(double a, double b) throws NegativeEntryException, ImpossibleMeasureException;
 }

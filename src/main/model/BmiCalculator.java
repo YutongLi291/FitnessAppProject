@@ -1,9 +1,12 @@
 package model;
 
+import exceptions.ImpossibleMeasureException;
+import exceptions.NegativeEntryException;
+
 public class BmiCalculator implements Calculator {
 
 
-    public   double bmi;
+    public double bmi;
     public String weightClassify;
     private static final String UNDERWEIGHT = "underweight";
     private static final String OVERWEIGHT = "overweight";
@@ -15,7 +18,12 @@ public class BmiCalculator implements Calculator {
     //Requires: weight and height be doubles in kg and m respectively
     //Modifies: this
     //Effects: calculates bmi and then prints out message regarding bmi
-    public void calculateValue(double w, double h) {
+    public void calculateValue(double w, double h) throws NegativeEntryException, ImpossibleMeasureException {
+        if (w < 0 || h < 0) {
+            throw new NegativeEntryException();
+        } else if (w < 15 || w > 500 || h < 0.8 || h > 2.5) {
+            throw new ImpossibleMeasureException();
+        }
         bmi = (w / (h * h));
         if (bmi < 18.5) {
             weightClassify = UNDERWEIGHT;
