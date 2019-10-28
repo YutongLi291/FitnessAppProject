@@ -2,7 +2,6 @@ package model;
 
 import exceptions.ImpossibleMeasureException;
 import exceptions.NegativeEntryException;
-import model.BmiCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +21,7 @@ public class BmiCalculatorTest {
     public void underweightBmiTest() throws ImpossibleMeasureException {
         try {
             bc.calculateValue(50, 1.8);
-            assertEquals("underweight", bc.getWeightClassify());
+            assertEquals("underweight", bc.getWeightClassification());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -33,7 +32,7 @@ public class BmiCalculatorTest {
     public void normalWeightBmiTest() throws ImpossibleMeasureException {
         try {
             bc.calculateValue(70, 1.8);
-            assertEquals("normal weight", bc.getWeightClassify());
+            assertEquals("normal weight", bc.getWeightClassification());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -43,7 +42,7 @@ public class BmiCalculatorTest {
     public void overweightBmiTest() throws ImpossibleMeasureException {
         try {
             bc.calculateValue(100, 1.7);
-            assertEquals("overweight", bc.getWeightClassify());
+            assertEquals("overweight", bc.getWeightClassification());
         } catch (ImpossibleMeasureException e) {
             fail();
         }

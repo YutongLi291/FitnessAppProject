@@ -7,7 +7,7 @@ public class BmiCalculator implements Calculator {
 
 
     public double bmi;
-    public String weightClassify;
+    public String weightClassification;
     private static final String UNDERWEIGHT = "underweight";
     private static final String OVERWEIGHT = "overweight";
     private static final String NORMAL_WEIGHT = "normal weight";
@@ -26,13 +26,13 @@ public class BmiCalculator implements Calculator {
         }
         bmi = (w / (h * h));
         if (bmi < 18.5) {
-            weightClassify = UNDERWEIGHT;
+            weightClassification = UNDERWEIGHT;
         } else if (bmi >= 25) {
-            weightClassify = OVERWEIGHT;
+            weightClassification = OVERWEIGHT;
         } else {
-            weightClassify = NORMAL_WEIGHT;
+            weightClassification = NORMAL_WEIGHT;
         }
-        System.out.println("Your bmi is " + bmi + ", you are considered " + weightClassify);
+        System.out.println("Your bmi is " + bmi + ", you are considered " + weightClassification);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class BmiCalculator implements Calculator {
     }
 
     //Effects: returns the weight classification
-    public String getWeightClassify() {
-        return weightClassify;
+    public String getWeightClassification() {
+        return weightClassification;
     }
 }

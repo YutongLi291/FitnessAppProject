@@ -12,6 +12,7 @@ import static ui.FitnessTracker.dcic;
 
 public class LoadFile {
 
+    //save load functions are built step by step with instructions from　beginwithjava.blogspot.com
     public static void main(String[] args) {
 
         try {

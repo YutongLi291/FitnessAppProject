@@ -48,6 +48,7 @@ public class FitnessTracker {
     //EFFECT: prompts the user to enter commands and directs the user to the right menu
     //mostly referenced from SimpleCalculatorStarterLecture code
 
+    //Most of these scanner functions are    referenced from LoggingCalculator
     private void enterCommands() {
         scanner = new Scanner(System.in);
 

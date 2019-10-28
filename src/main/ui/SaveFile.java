@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 
 public class SaveFile {
 
-
+    ///save load functions are built step by step with instructions from　beginwithjava.blogspot.com
     public static void main(String[] args) {
         Calculator bc = FitnessTracker.bc;
         Calorie ct = FitnessTracker.ct;
