@@ -39,6 +39,7 @@ public class PresetPlansTest {
     void addPlanTest() {
         maintenance.addPlan(maintain);
         gains.addPlan(gainFat);
+        gains.isInThisFolder(gainFat);
         Set<String> test = new HashSet<>();
         test.add("GainFat");
         assertEquals(gains.getFolderKeys(), test);

@@ -63,34 +63,34 @@ public class CustomPlan {
         return !(getAssignedPlansFolder() == null);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        CustomPlan that = (CustomPlan) o;
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) {
+//            return true;
+//        }
+//        if (o == null || getClass() != o.getClass()) {
+//            return false;
+//        }
+//        CustomPlan that = (CustomPlan) o;
+//
+//        if (Double.compare(that.calories, calories) != 0) {
+//            return false;
+//        }
+//        if (Double.compare(that.dailyWorkoutMinutes, dailyWorkoutMinutes) != 0) {
+//            return false;
+//        }
+//        return planName.equals(that.planName);
+//    }
 
-        if (Double.compare(that.calories, calories) != 0) {
-            return false;
-        }
-        if (Double.compare(that.dailyWorkoutMinutes, dailyWorkoutMinutes) != 0) {
-            return false;
-        }
-        return planName.equals(that.planName);
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(calories);
-        result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(dailyWorkoutMinutes);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + planName.hashCode();
-        return result;
-    }
+//    @Override
+//    public int hashCode() {
+//        int result;
+//        long temp;
+//        temp = Double.doubleToLongBits(calories);
+//        result = (int) (temp ^ (temp >>> 32));
+//        temp = Double.doubleToLongBits(dailyWorkoutMinutes);
+//        result = 31 * result + (int) (temp ^ (temp >>> 32));
+//        result = 31 * result + planName.hashCode();
+//        return result;
+//    }
 }
