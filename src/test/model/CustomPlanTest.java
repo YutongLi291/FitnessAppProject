@@ -74,6 +74,16 @@ public class CustomPlanTest {
 
 
 
+    //TODO: equals and hashCode tests
+    @Test
+    void equalsTest() {
+
+    }
+
+
+
+
+
 
 
 

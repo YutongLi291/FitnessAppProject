@@ -52,6 +52,7 @@ public class BmiCalculatorTest {
     public void negativeNumbersTest() throws NegativeEntryException {
         try {
             bc.calculateValue(-50, -1.5);
+
         } catch (NegativeEntryException e) {
 
         } catch (ImpossibleMeasureException e) {

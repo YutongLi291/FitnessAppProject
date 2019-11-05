@@ -25,6 +25,11 @@ public class BmiCalculator implements Calculator {
             throw new ImpossibleMeasureException();
         }
         bmi = (w / (h * h));
+        analyzeBmi(); //This was turned into a method
+        System.out.println("Your bmi is " + bmi + ", you are considered " + weightClassification);
+    }
+
+    private void analyzeBmi() {
         if (bmi < 18.5) {
             weightClassification = UNDERWEIGHT;
         } else if (bmi >= 25) {
@@ -32,7 +37,6 @@ public class BmiCalculator implements Calculator {
         } else {
             weightClassification = NORMAL_WEIGHT;
         }
-        System.out.println("Your bmi is " + bmi + ", you are considered " + weightClassification);
     }
 
     @Override
