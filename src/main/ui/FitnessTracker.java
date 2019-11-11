@@ -3,6 +3,8 @@ package ui;
 import exceptions.ImpossibleMeasureException;
 import exceptions.NegativeEntryException;
 import model.*;
+import network.FoodCalorieInformation;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -23,6 +25,7 @@ public class FitnessTracker {
     public static Calculator bc = new BmiCalculator();
     public static Calculator dcic = new DailyCalorieIntakeCalculator();
     public static HeightTrack ht = new HeightTrack();
+    public static FoodCalorieInformation fci;
 
 
     public static void main(String[] args) throws IOException {
@@ -162,6 +165,22 @@ public class FitnessTracker {
         System.out.println("Your net calories today is " + ct.getCalories());
     }
 
+
+
+
+    //REQUIRES: search string be valid food
+    //Effects: looks up calories of given string
+    public void lookupCalories(String search) {
+        fci = new FoodCalorieInformation(search);
+        try {
+            fci.searchFoodThenGetCalories();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    
     private void trackMeal(Calorie ct) throws NegativeEntryException {
         FoodCalories foodSearcher = new FoodCalories();
         int calories = 0;
@@ -172,7 +191,7 @@ public class FitnessTracker {
             calories = Integer.parseInt(input);
             ct.addCalories(calories);
         } catch (Exception e) {
-            foodSearcher.lookupCalories(input);
+            lookupCalories(input);
         }
 
 
