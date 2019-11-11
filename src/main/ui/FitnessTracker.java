@@ -163,11 +163,18 @@ public class FitnessTracker {
     }
 
     private void trackMeal(Calorie ct) throws NegativeEntryException {
-        int calories;
-        System.out.println("Please enter the calorie amount of your meal");
-        calories = scanner.nextInt();
+        FoodCalories foodSearcher = new FoodCalories();
+        int calories = 0;
+        String input;
+        System.out.println("Please enter the calorie amount of your meal, or type the food for its calories");
+        input = scanner.next();
+        try {
+            calories = Integer.parseInt(input);
+            ct.addCalories(calories);
+        } catch (Exception e) {
+            foodSearcher.lookupCalories(input);
+        }
 
-        ct.addCalories(calories);
 
         System.out.println("Your net calories today is " + ct.getCalories());
     }
