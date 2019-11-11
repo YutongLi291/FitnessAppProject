@@ -180,9 +180,8 @@ public class FitnessTracker {
             e.printStackTrace();
         }
     }
-    
+
     private void trackMeal(Calorie ct) throws NegativeEntryException {
-        FoodCalories foodSearcher = new FoodCalories();
         int calories = 0;
         String input;
         System.out.println("Please enter the calorie amount of your meal, or type the food for its calories");

@@ -17,6 +17,13 @@ public class BmiCalculatorTest {
         bc = new BmiCalculator();
     }
 
+
+    @Test
+    public void trackMeasureTest(){
+        bc.trackMeasure(20);
+        assertEquals(20, bc.getMeasure());
+    }
+
     @Test
     public void underweightBmiTest() throws ImpossibleMeasureException {
         try {

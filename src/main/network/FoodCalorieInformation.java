@@ -1,11 +1,8 @@
 package network;
 
 import java.io.*;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 
-import model.FoodCalories;
 import org.json.simple.JSONArray;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
