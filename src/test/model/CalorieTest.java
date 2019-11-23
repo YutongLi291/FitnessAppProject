@@ -1,7 +1,6 @@
 package model;
 
 import exceptions.ImpossibleMeasureException;
-import model.Calorie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +23,7 @@ class CalorieTest {
 
         try {
             fc.addCalories(30);
-            assertEquals(30, fc.getCalories());
+            assertEquals(30, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -37,7 +36,7 @@ class CalorieTest {
     public void burnCaloriesTest() {
         try {
             fc.burnCalories(50);
-            assertEquals(-50, fc.getCalories());
+            assertEquals(-50, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -47,7 +46,7 @@ class CalorieTest {
 
     @Test
     public void noActionsGetCaloriesTest() {
-        assertEquals(0, fc.getCalories());
+        assertEquals(0, fc.getNetCalories());
     }
 
     @Test
@@ -55,7 +54,7 @@ class CalorieTest {
         try {
             fc.addCalories(30);
             fc.burnCalories(10);
-            assertEquals(20, fc.getCalories());
+            assertEquals(20, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -68,7 +67,7 @@ class CalorieTest {
             fc.burnCalories(50);
             fc.addCalories(20);
 
-            assertEquals(-30, fc.getCalories());
+            assertEquals(-30, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
             fail();
         }
@@ -79,7 +78,7 @@ class CalorieTest {
     public void addNegativeCalories() {
         try {
             fc.addCalories(-50);
-            assertEquals(0, fc.getCalories());
+            assertEquals(0, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
         }
 
@@ -88,7 +87,7 @@ class CalorieTest {
     public void burnNegativeCalories() {
         try {
             fc.burnCalories(-60);
-            assertEquals(0, fc.getCalories());
+            assertEquals(0, fc.getNetCalories());
         } catch (ImpossibleMeasureException e) {
         }
     }

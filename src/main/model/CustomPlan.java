@@ -16,28 +16,35 @@ public class CustomPlan {
         this.planName = planName;
     }
 
-
+    //Effects: gets planName
     public String getPlanName() {
         return planName;
     }
 
+    //Effects: gets calories
     public double getCalories() {
         return calories;
     }
 
+    //Effects: gets dailyWorkoutMinutes
     public double getDailyWorkoutMinutes() {
         return dailyWorkoutMinutes;
     }
 
+    //Effects: gets assignedPlansFolder
     public PresetPlans getAssignedPlansFolder() {
         return assignedPlansFolder;
     }
 
+    //Modifies: this
+    //Effects: sets field assignedPlansFolder
     public void setAssignedPlansFolder(PresetPlans presetPlans) {
         assignedPlansFolder = presetPlans;
     }
 
 
+    //Modifies: this, PresetPlans
+    //Effects: adds this customPlan to a presetPlan folder, remove first from existing folder if exists
     public void addToPresetFolder(PresetPlans presetPlans) {
         if (hasAssignedFolder()) {
             removeFromFolder();
@@ -47,10 +54,13 @@ public class CustomPlan {
     }
 
 
+    //Effects: checks whether this customPlan is in the specified folder of presetPlans
     public boolean isInPresetPlan(PresetPlans presetPlans) {
         return assignedPlansFolder.equals(presetPlans);
     }
 
+    //Modifies: this, presetPlan
+    //Effects: removes this customPlan from its folder
     public void removeFromFolder() {
         if (hasAssignedFolder()) {
             assignedPlansFolder.plansFolder.remove(this.planName);
@@ -59,6 +69,7 @@ public class CustomPlan {
         }
     }
 
+    //Effects: checks whether this customPlan has an assignedfolder
     public boolean hasAssignedFolder() {
         return !(getAssignedPlansFolder() == null);
     }

@@ -13,7 +13,8 @@ public class PresetPlans {
         this.folderName = folderName;
     }
 
-
+    //Modifies: this, CustomPlan
+    //Effects: adds a customPlan to this folder
     public void addPlan(CustomPlan customPlan) {
         if (customPlan.hasAssignedFolder()) {
             customPlan.removeFromFolder();
@@ -23,23 +24,29 @@ public class PresetPlans {
     }
 
 
+    //Effects: returns true if the customPlan is in this folder
     public boolean isInThisFolder(CustomPlan customPlan) {
         return (customPlan.hasAssignedFolder() && customPlan.getAssignedPlansFolder().equals(this));
     }
 
+    //Effects: get the keys for plansFolder
     public Set<String> getFolderKeys() {
         return plansFolder.keySet();
     }
 
+    //Effects: gets a corresponding plan from a given key
     public CustomPlan getPlanFromKey(String name) {
         return plansFolder.get(name);
     }
 
+    //Modifies: this, CustomPlan
+    //Effects: removes specified plan from this folder
     public void removePlan(CustomPlan plan) {
         plansFolder.remove(plan);
         plan.removeFromFolder();
     }
 
+    //Effects: returns the folderName
     public String getFolderName() {
         return folderName;
     }

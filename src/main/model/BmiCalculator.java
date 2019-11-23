@@ -29,6 +29,8 @@ public class BmiCalculator implements Calculator {
         System.out.println("Your bmi is " + bmi + ", you are considered " + weightClassification);
     }
 
+    //Modifies: this
+    //Effects: changes classification of weight depending on bmi
     private void analyzeBmi() {
         if (bmi < 18.5) {
             weightClassification = UNDERWEIGHT;

@@ -20,7 +20,7 @@ public class FoodCalorieInformation {
     private static final String partTwoQuery = "?results=0%3A1&cal_min=0&cal_max=50000&fields=nf_calories&appId=";
     private static final String partThreeQuery = "&appKey=";
     String search;
-
+    String theUrl;
     //    static String theURL = partOneQuery + search + partTwoQuery + appId + partThreeQuery + apikey;
 
     public FoodCalorieInformation(String search) {
@@ -34,8 +34,8 @@ public class FoodCalorieInformation {
 
         try {
 
-            String theURL = partOneQuery + search + partTwoQuery + appId + partThreeQuery + apikey;
-            URL url = new URL(theURL);
+            theUrl = partOneQuery + search + partTwoQuery + appId + partThreeQuery + apikey;
+            URL url = new URL(theUrl);
             br = new BufferedReader(new InputStreamReader(url.openStream()));
 
             String line;

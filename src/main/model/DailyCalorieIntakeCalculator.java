@@ -15,11 +15,15 @@ public class DailyCalorieIntakeCalculator implements Calculator {
     }
 
     @Override
+    //Modifies: this
+    //Effects: sets the recommendedIntake
     public void trackMeasure(double m) {
         recommendedIntake = m;
     }
 
     @Override
+
+    //Effects: returns the recommendedIntake
     public double getMeasure() {
         return recommendedIntake;
     }

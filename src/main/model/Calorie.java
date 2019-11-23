@@ -34,7 +34,7 @@ public class Calorie {
     }
 
     //Effect: gets the netcalories consumed
-    public int getCalories() {
+    public int getNetCalories() {
         return netCalories;
     }
 }

@@ -19,7 +19,7 @@ public class SaveFile {
             ObjectOutputStream save = new ObjectOutputStream(saveFile);
 
             save.writeObject(bc.getMeasure());
-            save.writeObject(ct.getCalories());
+            save.writeObject(ct.getNetCalories());
             save.writeObject(wt.getMeasure());
             save.writeObject(ht.getMeasure());
             save.writeObject(dcic.getMeasure());
