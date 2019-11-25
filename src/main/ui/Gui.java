@@ -7,11 +7,13 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.sound.midi.Track;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
 import exceptions.ImpossibleMeasureException;
 import exceptions.NegativeEntryException;
 import model.*;
@@ -49,9 +51,11 @@ public class Gui extends JFrame implements ActionListener {
     public Gui() {
         super("Fitness Tracker");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 300));
-        ((JPanel) getContentPane()).setBorder(new EmptyBorder(200, 13, 13, 13) );
+        setPreferredSize(new Dimension(650, 200));
+        ((JPanel) getContentPane()).setBorder(new EmptyBorder(50, 100, 50, 100));
         setLayout(new FlowLayout());
+        setTitle("Welcome To Fitness Tracker!");
+        getContentPane().setBackground(Color.white);
         JButton enter = new JButton("Enter");
         enter.setActionCommand("myButton");
         enter.addActionListener(this); //sets "this" class as an action listener for btn.
@@ -59,9 +63,8 @@ public class Gui extends JFrame implements ActionListener {
         //this.actionPerformed(ActionEvent e) will be called.
         //You could also set a different class, if you wanted
         //to capture the response behaviour elsewhere
-        label = new JLabel("Welcome to Fitness Planner!"
-                +  " You can enter 't' to record your meal, exercise, height, or weight."
-                + " You can enter 'bmi' to calculate your bmi." + " Enter 'save' to save.");
+        label = new JLabel(" You can enter 't' to record your meal, exercise, height, or weight."
+                + " 'bmi' to calculate your bmi." + " 'save' to save.");
         field = new JTextField(5);
         add(field);
         add(enter);
@@ -76,20 +79,22 @@ public class Gui extends JFrame implements ActionListener {
     //for which this class is an ActionListener
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("myButton")) {
-            if (field.getText().equals("t")) {
-//                analyzeCommand(field.toString());
+            if (field.getText().equals(TRACK)) {
+                TrackMenu trackMenu = new TrackMenu();
+                trackMenu.initialize();
             } else if (field.getText().equals("save")) {
                 SaveFile.main(new String[]{"main"});
                 JOptionPane.showConfirmDialog(null, "Your data was saved!", "Save",
                         JOptionPane.DEFAULT_OPTION);
-            } else if (field.getText().equals("bmi")) {
-
+            } else if (field.getText().equals(CALCULATE_BMI)) {
+                BmiMenu bmiMenu = new BmiMenu();
+                bmiMenu.initialize();
             }
-
 
 
         }
     }
+
 
 //    private void analyzeCommand(String input) {
 //        if (input.equals("save")) {
@@ -104,13 +109,6 @@ public class Gui extends JFrame implements ActionListener {
 //        }
 //    }
 
-
-
-    private void welcome() {
-        label.setText("Welcome to Fitness Planner!"
-                +  " You can enter 't' to record your meal, exercise, height, or weight."
-                + " You can enter 'bmi' to calculate your bmi." + " Enter 'save' to save.");
-    }
 
     public static void main(String[] args) {
         new Gui();
