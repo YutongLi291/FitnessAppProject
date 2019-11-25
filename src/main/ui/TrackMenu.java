@@ -36,13 +36,14 @@ public class TrackMenu extends JFrame implements ActionListener {
 
     public TrackMenu() {
         super("Tracker Interface");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        mealButton = new JButton("m");
-        exerciseButton = new JButton("e");
-        heightButton = new JButton("h");
-        weightButton = new JButton("w");
-        setPreferredSize(new Dimension(650, 200));
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        mealButton = new JButton("Meal");
+        exerciseButton = new JButton("Exercise");
+        heightButton = new JButton("Height");
+        weightButton = new JButton("Weight");
+        setPreferredSize(new Dimension(800, 200));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(50, 100, 50, 100));
+
         setLayout(new FlowLayout());
         setTitle("Tracker Interface");
         mealButton.setActionCommand("meal");
@@ -62,8 +63,9 @@ public class TrackMenu extends JFrame implements ActionListener {
         //this.actionPerformed(ActionEvent e) will be called.
         //You could also set a different class, if you wanted
         //to capture the response behaviour elsewhere
-        label = new JLabel("Press m to track meal and e to track exercise in calories, "
-                + "h to track height in metres, w to track weight in kgs");
+        label = new JLabel("Press meal to track meal and exercise to track exercise in calories, "
+                + "height to track height in metres, weight to track weight in kgs");
+
         field = new JTextField(5);
         add(field);
         add(mealButton);
@@ -78,6 +80,7 @@ public class TrackMenu extends JFrame implements ActionListener {
     }
 
     @Override
+    //Effects: takes one to the right menu depending on button pressed
     public void actionPerformed(ActionEvent e) {
         {
             try {

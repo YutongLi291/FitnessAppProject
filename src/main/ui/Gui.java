@@ -31,7 +31,7 @@ public class Gui extends JFrame implements ActionListener {
 
     private String state = "analyzing";
     private static final String CONFIRM = "ok";
-    private static final String TRACK = "t";
+    private static final String TRACK = "track";
     private static final String QUIT_COMMAND = "quit";
     private static final String WEIGHT = "w";
     private static final String HEIGHT = "h";
@@ -56,42 +56,47 @@ public class Gui extends JFrame implements ActionListener {
         setLayout(new FlowLayout());
         setTitle("Welcome To Fitness Tracker!");
         getContentPane().setBackground(Color.white);
-        JButton enter = new JButton("Enter");
-        enter.setActionCommand("myButton");
-        enter.addActionListener(this); //sets "this" class as an action listener for btn.
+        JButton track = new JButton("track");
+        track.setActionCommand(TRACK);
+        track.addActionListener(this); //sets "this" class as an action listener for btn.
+        JButton bmi = new JButton(CALCULATE_BMI);
+        bmi.setActionCommand("bmi");
+        bmi.addActionListener(this);
+        JButton save = new JButton("save");
+        save.setActionCommand("save");
+        save.addActionListener(this);
         //that means that when the btn is clicked,
         //this.actionPerformed(ActionEvent e) will be called.
         //You could also set a different class, if you wanted
         //to capture the response behaviour elsewhere
-        label = new JLabel(" You can enter 't' to record your meal, exercise, height, or weight."
+        label = new JLabel(" You can enter 'track' to record your meal, exercise, height, or weight."
                 + " 'bmi' to calculate your bmi." + " 'save' to save.");
-        field = new JTextField(5);
-        add(field);
-        add(enter);
+//        field = new JTextField(5);
+//        add(field);
+        add(track);
+        add(bmi);
+        add(save);
         add(label);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+        LoadFile.main(new String[]{"main"});
     }
 
     //this is the method that runs when Swing registers an action on an element
     //for which this class is an ActionListener
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("myButton")) {
-            if (field.getText().equals(TRACK)) {
-                TrackMenu trackMenu = new TrackMenu();
-                trackMenu.initialize();
-            } else if (field.getText().equals("save")) {
-                SaveFile.main(new String[]{"main"});
-                JOptionPane.showConfirmDialog(null, "Your data was saved!", "Save",
-                        JOptionPane.DEFAULT_OPTION);
-            } else if (field.getText().equals(CALCULATE_BMI)) {
-                BmiMenu bmiMenu = new BmiMenu();
-                bmiMenu.initialize();
-            }
-
-
+        if (e.getActionCommand().equals(TRACK)) {
+            TrackMenu trackMenu = new TrackMenu();
+            trackMenu.initialize();
+        } else if (e.getActionCommand().equals("save")) {
+            SaveFile.main(new String[]{"main"});
+            JOptionPane.showConfirmDialog(null, "Your data was saved!", "Save",
+                    JOptionPane.DEFAULT_OPTION);
+        } else if (e.getActionCommand().equals(CALCULATE_BMI)) {
+            BmiMenu bmiMenu = new BmiMenu();
+            bmiMenu.initialize();
         }
     }
 
