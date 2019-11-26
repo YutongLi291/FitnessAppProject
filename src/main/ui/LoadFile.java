@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import static ui.FitnessTracker.bc;
-import static ui.FitnessTracker.dcic;
+import static ui.Gui.bc;
+import static ui.Gui.dcic;
 
 public class LoadFile {
 
@@ -19,9 +19,9 @@ public class LoadFile {
             FileInputStream saveFile = new FileInputStream("saveFile.sav");
             ObjectInputStream restore = new ObjectInputStream(saveFile);
             bc.trackMeasure((double) restore.readObject());
-            FitnessTracker.ct.netCalories = (int) restore.readObject();
-            FitnessTracker.wt.measure = (double) restore.readObject();
-            FitnessTracker.ht.measure = (double) restore.readObject();
+            Gui.ct.netCalories = (int) restore.readObject();
+            Gui.wt.measure = (double) restore.readObject();
+            Gui.ht.measure = (double) restore.readObject();
             dcic.trackMeasure((double) restore.readObject());
 
             restore.close();

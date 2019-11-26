@@ -9,10 +9,10 @@ public class SaveFile {
 
     ///save load functions are built step by step with instructions from　beginwithjava.blogspot.com
     public static void main(String[] args) {
-        Calculator bc = FitnessTracker.bc;
-        Calorie ct = FitnessTracker.ct;
-        WeightTrack wt = FitnessTracker.wt;
-        HeightTrack ht = FitnessTracker.ht;
+        Calculator bc = Gui.bc;
+        Calorie ct = Gui.ct;
+        WeightTrack wt = Gui.wt;
+        HeightTrack ht = Gui.ht;
         Calculator dcic = new DailyCalorieIntakeCalculator();
         try {
             FileOutputStream saveFile = new FileOutputStream("saveFile.sav");
