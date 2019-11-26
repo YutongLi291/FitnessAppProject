@@ -23,10 +23,13 @@ public class FoodCalorieInformation {
     String theUrl;
     //    static String theURL = partOneQuery + search + partTwoQuery + appId + partThreeQuery + apikey;
 
+
     public FoodCalorieInformation(String search) {
         this.search = search;
     }
 
+    //Modifies: this
+    //Effects: gets calories back from a food search of keywords
     public void searchFoodThenGetCalories() throws MalformedURLException, IOException, ParseException {
 
         BufferedReader br = null;

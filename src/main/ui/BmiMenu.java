@@ -29,6 +29,7 @@ public class BmiMenu extends JFrame implements ActionListener {
     double height;
     double weight;
 
+    //Constructs a new bmiMenu frame
     public BmiMenu() {
         super("Bmi Calculator Interface");
         setDefaultCloseOperation(HIDE_ON_CLOSE);

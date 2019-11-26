@@ -56,6 +56,8 @@ public class TrackMenu extends JFrame implements ActionListener {
         weightButton.addActionListener(this);
     }
 
+    //Modifies: this
+    //Effects: initializes the menu to track
     public void initialize() {
         getContentPane().setBackground(Color.white);
         //sets "this" class as an action listener for btn.
